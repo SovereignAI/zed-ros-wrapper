@@ -378,7 +378,10 @@ void ZEDWrapperNodelet::onInit() {
     mPubRgb = it_zed.advertiseCamera(rgb_topic, 1); // rgb
     NODELET_INFO_STREAM("Advertised on topic " << mPubRgb.getTopic());
     NODELET_INFO_STREAM("Advertised on topic " << mPubRgb.getInfoTopic());
-    mPubRawRgb = it_zed.advertiseCamera(rgb_raw_topic, 1); // rgb raw
+
+    //Commenting Unused Image Publisher to reduce Cellphone Bandwidth Issue
+
+/*    mPubRawRgb = it_zed.advertiseCamera(rgb_raw_topic, 1); // rgb raw
     NODELET_INFO_STREAM("Advertised on topic " << mPubRawRgb.getTopic());
     NODELET_INFO_STREAM("Advertised on topic " << mPubRawRgb.getInfoTopic());
     mPubLeft = it_zed.advertiseCamera(left_topic, 1); // left
@@ -393,11 +396,15 @@ void ZEDWrapperNodelet::onInit() {
     mPubRawRight = it_zed.advertiseCamera(right_raw_topic, 1); // right raw
     NODELET_INFO_STREAM("Advertised on topic " << mPubRawRight.getTopic());
     NODELET_INFO_STREAM("Advertised on topic " << mPubRawRight.getInfoTopic());
+*/
 
     mPubRgbGray = it_zed.advertiseCamera(rgb_gray_topic, 1); // rgb
     NODELET_INFO_STREAM("Advertised on topic " << mPubRgbGray.getTopic());
     NODELET_INFO_STREAM("Advertised on topic " << mPubRgbGray.getInfoTopic());
-    mPubRawRgbGray = it_zed.advertiseCamera(rgb_raw_gray_topic, 1); // rgb raw
+
+    //Commenting Unused Image Publisher to reduce Cellphone Bandwidth Issue
+
+/*    mPubRawRgbGray = it_zed.advertiseCamera(rgb_raw_gray_topic, 1); // rgb raw
     NODELET_INFO_STREAM("Advertised on topic " << mPubRawRgbGray.getTopic());
     NODELET_INFO_STREAM("Advertised on topic " << mPubRawRgbGray.getInfoTopic());
     mPubLeftGray = it_zed.advertiseCamera(left_gray_topic, 1); // left
@@ -433,7 +440,7 @@ void ZEDWrapperNodelet::onInit() {
     // PointCloud publishers
     mPubCloud = mNhNs.advertise<sensor_msgs::PointCloud2>(pointcloud_topic, 1);
     NODELET_INFO_STREAM("Advertised on topic " << mPubCloud.getTopic());
-
+*/
     if (mMappingEnabled) {
         mPubFusedCloud = mNhNs.advertise<sensor_msgs::PointCloud2>(pointcloud_fused_topic, 1);
         NODELET_INFO_STREAM("Advertised on topic " << mPubFusedCloud.getTopic() << " @ " << mFusedPcPubFreq << " Hz");
